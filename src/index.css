@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-forest-950: #080808;
+  --color-forest-900: #0f0f0f;
+  --color-forest-850: #141414;
+  --color-forest-800: #1c1c1c;
+  --color-forest-750: #262626;
+  --color-forest-700: #333333;
+  --color-forest-600: #4a4a4a;
+  --color-forest-500: #666666;
+  --color-forest-400: #999999;
+  --color-forest-300: #cccccc;
+  --color-forest-200: #e5e5e5;
+  --color-forest-100: #f5f5f5;
+  --color-forest-50: #fafafa;
+  
+  --color-brand-beige: #d4cec4;
+  --color-brand-accent: #3b82f6;
+  --color-brand-glow: rgba(59, 130, 246, 0.15);
+}
+
+/* Custom Scrollbar - Responsive to Themes */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Dark Theme scrollbars */
+html.dark ::-webkit-scrollbar-track {
+  background: #080808;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1c1c1c;
+  border-radius: 9999px;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #262626;
+}
+
+/* Light Theme scrollbars */
+html.light ::-webkit-scrollbar-track {
+  background: #fbfaf7;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #d4cec4;
+  border-radius: 9999px;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #cbc6b8;
+}
+
+/* Hide scrollbars utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+
+/* Smooth global transitions for backgrounds, borders, and text colors */
+body,
+#root,
+header,
+footer,
+section,
+.border,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+a,
+button,
+div {
+  transition-property: background-color, border-color, color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 400ms;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(15, 15, 15, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Ambient glow effects */
+.ambient-glow {
+  filter: blur(140px);
+  pointer-events: none;
+}
+
+/* Image styling */
+img {
+  content-visibility: auto;
+}
+
+/* Dot Background Pattern */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+.dot-grid-light {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Outline Stroke Text */
+.stroke-text {
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15);
+  color: transparent;
+}
+.stroke-text:hover {
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.85);
+}
+
+/* Smooth slow scrolling transition styling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU-accelerated premium background image drift and rotation */
+@keyframes bg-drift-slow {
+  0% {
+    transform: scale(1.35) translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.42) translate(5%, -4%) rotate(10deg);
+  }
+  50% {
+    transform: scale(1.38) translate(4%, 5%) rotate(18deg);
+  }
+  75% {
+    transform: scale(1.45) translate(-5%, 4%) rotate(-10deg);
+  }
+  100% {
+    transform: scale(1.35) translate(0px, 0px) rotate(0deg);
+  }
+}
+
+@keyframes bg-drift-reverse-slow {
+  0% {
+    transform: scale(1.38) translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.45) translate(-4%, 5%) rotate(-12deg);
+  }
+  50% {
+    transform: scale(1.35) translate(-5%, -4%) rotate(-20deg);
+  }
+  75% {
+    transform: scale(1.42) translate(5%, -5%) rotate(12deg);
+  }
+  100% {
+    transform: scale(1.38) translate(0px, 0px) rotate(0deg);
+  }
+}
+
+.animate-bg-drift {
+  animation: bg-drift-slow 4.5s ease-in-out infinite;
+}
+
+.animate-bg-drift-reverse {
+  animation: bg-drift-reverse-slow 5s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.45; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 12s ease-in-out infinite;
+}
+
+

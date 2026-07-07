@@ -1,0 +1,6 @@
+{
+  "name": "Sylvan",
+  "description": "An elegant, premium community platform for creators, educators, and coaches, designed with an earthy, modern forest aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
