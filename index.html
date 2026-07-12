@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sylvan | Fully Branded Community Platform for Creators</title>
+    <meta name="description" content="Sylvan gives creators, educators, and coaches a fully branded, white-labeled space with courses, events, discussions, and members under your own domain." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sylvan-saas.vercel.app/" />
+    <meta property="og:title" content="Sylvan | Fully Branded Community Platform for Creators" />
+    <meta property="og:description" content="Sylvan gives creators, educators, and coaches a fully branded space with courses, events, discussions, and members—all under your own command." />
+    <meta property="og:image" content="https://sylvan-saas.vercel.app/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://sylvan-saas.vercel.app/" />
+    <meta property="twitter:title" content="Sylvan | Fully Branded Community Platform for Creators" />
+    <meta property="twitter:description" content="Sylvan gives creators, educators, and coaches a fully branded space with courses, events, discussions, and members—all under your own command." />
+    <meta property="twitter:image" content="https://sylvan-saas.vercel.app/og-image.png" />
+    
+    <!-- PWA & Mobile Meta Tags -->
+    <meta name="theme-color" content="#070708" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Sylvan" />
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Icon Declarations -->
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="shortcut icon" href="/favicon-48x48.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon-180x180.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Register Service Worker for PWA installation and offline caching -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('Service Worker registered successfully:', reg.scope))
+            .catch((err) => console.error('Service Worker registration failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>
+
